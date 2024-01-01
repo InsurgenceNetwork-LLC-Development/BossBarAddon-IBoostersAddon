@@ -18,12 +18,12 @@ public class BossBarUtil {
     public final List<Player> bossBarPlayers = new ArrayList<>();
 
     public void sendBossBar(Player player) {
-        if (hasBar(player)) {
+        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
+        if (globalBoosters.isEmpty()) {
             return;
         }
 
-        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
-        if (globalBoosters.isEmpty()) {
+        if (hasBar(player)) {
             return;
         }
 
