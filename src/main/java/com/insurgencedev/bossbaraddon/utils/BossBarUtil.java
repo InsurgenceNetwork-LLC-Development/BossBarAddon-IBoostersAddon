@@ -42,8 +42,6 @@ public class BossBarUtil {
     }
 
     public void remove(Player player) {
-        if (hasBar(player)) {
-            bossBarPlayers.remove(player);
-        }
+        bossBarPlayers.remove(player);
     }
 }
