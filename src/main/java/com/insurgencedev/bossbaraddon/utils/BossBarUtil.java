@@ -17,29 +17,6 @@ public class BossBarUtil {
 
     public final List<Player> bossBarPlayers = new ArrayList<>();
 
-    public void sendBossBar() {
-        if (!bossBarPlayers.isEmpty()) {
-            return;
-        }
-
-        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
-        if (globalBoosters.isEmpty()) {
-            return;
-        }
-
-        GlobalBoosterManager.BoosterData.GlobalBooster booster = IBoosterAPI.getGlobalBoosterManager().getBoosters().get(0);
-        String message = Replacer.replaceArray(MyConfig.barMessage,
-                "{multiplier}", booster.getMultiplier(),
-                "{type}", booster.getType()
-        );
-
-        bossBarPlayers.addAll(Remain.getOnlinePlayers());
-
-        for (Player player : bossBarPlayers) {
-            Remain.sendBossbarTimed(player, message, (int) booster.getTimeLeft(), MyConfig.barColor, CompBarStyle.SOLID);
-        }
-    }
-
     public void sendBossBar(Player player) {
         if (hasBar(player)) {
             return;
@@ -56,8 +33,8 @@ public class BossBarUtil {
                 "{type}", booster.getType()
         );
 
-        bossBarPlayers.add(player);
         Remain.sendBossbarTimed(player, message, (int) booster.getTimeLeft(), MyConfig.barColor, CompBarStyle.SOLID);
+        bossBarPlayers.add(player);
     }
 
     public boolean hasBar(Player player) {

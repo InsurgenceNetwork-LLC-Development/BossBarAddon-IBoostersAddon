@@ -16,7 +16,7 @@ public final class BoosterEventListener implements Listener {
     @EventHandler
     private void onStart(IBoosterStartEvent event) {
         if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
-            Common.runLater(1, BossBarUtil::sendBossBar);
+            Common.runLater(1, () -> BossBarUtil.sendBossBar(event.getPlayer()));
         }
     }
 
@@ -24,13 +24,13 @@ public final class BoosterEventListener implements Listener {
     private void onEnd(IBoosterEndEvent event) {
         if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
             BossBarUtil.bossBarPlayers.clear();
-            Common.runLater(1, BossBarUtil::sendBossBar);
+            Common.runLater(1, () -> BossBarUtil.sendBossBar(event.getPlayer()));
         }
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
     private void onJoin(PlayerJoinEvent event) {
-        BossBarUtil.sendBossBar(event.getPlayer());
+        Common.runLater(1, () -> BossBarUtil.sendBossBar(event.getPlayer()));
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
