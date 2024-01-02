@@ -1,7 +1,6 @@
 package com.insurgencedev.bossbaraddon.listeners;
 
 import com.insurgencedev.bossbaraddon.utils.BossBarUtil;
-import org.bukkit.entity.Boss;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -29,8 +28,7 @@ public final class BoosterEventListener implements Listener {
     private void onEnd(IBoosterEndEvent event) {
         if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
             Player player = event.getPlayer();
-            Common.runLater(1, () -> BossBarUtil.sendBossBar(player));
-            BossBarUtil.remove(player);
+            Common.runLater(1, () -> { BossBarUtil.sendBossBar(player); BossBarUtil.remove(player); });
         }
     }
 

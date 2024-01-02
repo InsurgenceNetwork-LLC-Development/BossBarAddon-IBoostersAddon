@@ -7,6 +7,7 @@ public class MyConfig extends AddonConfig {
 
     public static String barMessage;
     public static CompBarColor barColor;
+    public static boolean respectExternalBars;
 
     public MyConfig() {
         loadAddonConfig("config.yml", "config.yml");
@@ -16,5 +17,6 @@ public class MyConfig extends AddonConfig {
     protected void onLoad() {
         barMessage = getString("Boss_Bar.Message");
         barColor = CompBarColor.fromKey(getString("Boss_Bar.Color", "Pink"));
+        respectExternalBars = getBoolean("Respect_External_Bars");
     }
 }
