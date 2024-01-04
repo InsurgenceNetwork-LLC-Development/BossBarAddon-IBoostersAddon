@@ -12,14 +12,13 @@ import org.insurgencedev.insurgenceboosters.libs.fo.remain.CompBarStyle;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
 import org.insurgencedev.insurgenceboosters.models.booster.GlobalBoosterManager;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @UtilityClass
 public class BossBarUtil {
 
-    public final List<Player> bossBarPlayers = new ArrayList<>();
+    private final List<Player> bossBarPlayers = new ArrayList<>();
+    private final Map<UUID, String> bars = new HashMap<>();
 
     public void sendBossBar(Player player) {
         if (MyConfig.respectExternalBars && hasExternalBar(player)) {
@@ -43,6 +42,11 @@ public class BossBarUtil {
 
         Remain.sendBossbarTimed(player, message, (int) booster.getTimeLeft(), MyConfig.barColor, CompBarStyle.SOLID);
         bossBarPlayers.add(player);
+        bars.put(player.getUniqueId(), booster.getType());
+    }
+
+    public boolean isCurrentType(Player player, String type) {
+        return bars.get(player.getUniqueId()).equals(type);
     }
 
     public void remove(Player player) {

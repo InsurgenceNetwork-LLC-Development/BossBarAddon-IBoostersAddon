@@ -14,6 +14,7 @@ import org.insurgencedev.insurgenceboosters.events.IBoosterEndEvent;
 import org.insurgencedev.insurgenceboosters.events.IBoosterStartEvent;
 import org.insurgencedev.insurgenceboosters.libs.fo.Common;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
+import org.insurgencedev.insurgenceboosters.settings.IBoostersPlayerCache;
 
 public final class BoosterEventListener implements Listener {
 
@@ -26,9 +27,17 @@ public final class BoosterEventListener implements Listener {
 
     @EventHandler
     private void onEnd(IBoosterEndEvent event) {
-        if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
+        IBoostersPlayerCache.Data.Booster data = event.getBoosterData();
+
+        if (data.getScope().equalsIgnoreCase("global")) {
             Player player = event.getPlayer();
-            Common.runLater(1, () -> { BossBarUtil.remove(player); BossBarUtil.sendBossBar(player); });
+            Common.runLater(1, () -> {
+                if (BossBarUtil.isCurrentType(player, data.getType())) {
+                    BossBarUtil.remove(player);
+                }
+
+                BossBarUtil.sendBossBar(player);
+            });
         }
     }
 
@@ -49,7 +58,7 @@ public final class BoosterEventListener implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
     private void onDisable(PluginDisableEvent event) {
-        if(event.getPlugin().equals(InsurgenceBoosters.getInstance())) {
+        if (event.getPlugin().equals(InsurgenceBoosters.getInstance())) {
             Remain.getOnlinePlayers().forEach(BossBarUtil::remove);
         }
     }
