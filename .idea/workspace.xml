@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="minor changes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="fixed bug, added config option">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hutch/Desktop/IBoosterAddons/BossBarAddon/src/main/libs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hutch/Desktop/IBoosterAddons/JobsRebornAddon&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;
   }
 }</component>
@@ -142,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704142723087</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed bug, added config option">
+      <option name="closed" value="true" />
+      <created>1704197239939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704197239940</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +167,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="Updated util" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="fixed bug, added config option" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug, added config option" />
   </component>
 </project>

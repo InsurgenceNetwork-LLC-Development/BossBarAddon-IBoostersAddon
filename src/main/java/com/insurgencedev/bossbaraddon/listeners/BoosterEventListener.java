@@ -28,7 +28,7 @@ public final class BoosterEventListener implements Listener {
     private void onEnd(IBoosterEndEvent event) {
         if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
             Player player = event.getPlayer();
-            Common.runLater(1, () -> { BossBarUtil.sendBossBar(player); BossBarUtil.remove(player); });
+            Common.runLater(1, () -> { BossBarUtil.remove(player); BossBarUtil.sendBossBar(player); });
         }
     }
 

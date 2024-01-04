@@ -26,12 +26,12 @@ public class BossBarUtil {
             return;
         }
 
-        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
-        if (globalBoosters.isEmpty()) {
+        if (hasBar(player)) {
             return;
         }
 
-        if (hasBar(player)) {
+        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
+        if (globalBoosters.isEmpty()) {
             return;
         }
 
