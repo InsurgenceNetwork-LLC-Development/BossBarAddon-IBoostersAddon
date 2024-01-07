@@ -42,11 +42,15 @@ public class BossBarUtil {
 
         Remain.sendBossbarTimed(player, message, (int) booster.getTimeLeft(), MyConfig.barColor, CompBarStyle.SOLID);
         bossBarPlayers.add(player);
-        bars.put(player.getUniqueId(), booster.getType());
+        barTypeTracker.put(player, booster.getType());
+    }
+
+    public void removeBossBar(Player player) {
+        Remain.removeBossbar(player);
     }
 
     public boolean isCurrentType(Player player, String type) {
-        return bars.get(player.getUniqueId()).equals(type);
+        return barTypeTracker.get(player).equals(type);
     }
 
     public void remove(Player player) {

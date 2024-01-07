@@ -33,6 +33,9 @@ public final class BoosterEventListener implements Listener {
             Player player = event.getPlayer();
             Common.runLater(1, () -> {
                 if (BossBarUtil.isCurrentType(player, data.getType())) {
+                    if (data.getTimeLeft() > 0) {
+                        BossBarUtil.removeBossBar(player);
+                    }
                     BossBarUtil.remove(player);
                 }
 
