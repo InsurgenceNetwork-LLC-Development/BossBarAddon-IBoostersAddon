@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="version update and minor changes">
+    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="Fixed minor issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704367848481</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed minor issue">
+      <option name="closed" value="true" />
+      <created>1704370216453</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704370216453</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +186,7 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="fixed bug, added config option" />
     <MESSAGE value="version update and minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="version update and minor changes" />
+    <MESSAGE value="Fixed minor issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed minor issue" />
   </component>
 </project>

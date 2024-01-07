@@ -18,7 +18,7 @@ import java.util.*;
 public class BossBarUtil {
 
     private final List<Player> bossBarPlayers = new ArrayList<>();
-    private final Map<UUID, String> bars = new HashMap<>();
+    private final Map<Player, String> barTypeTracker = new HashMap<>();
 
     public void sendBossBar(Player player) {
         if (MyConfig.respectExternalBars && hasExternalBar(player)) {
@@ -55,6 +55,7 @@ public class BossBarUtil {
 
     public void remove(Player player) {
         bossBarPlayers.remove(player);
+        barTypeTracker.remove(player);
     }
 
     public boolean hasBar(Player player) {
