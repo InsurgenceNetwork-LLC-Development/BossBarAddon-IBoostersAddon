@@ -7,10 +7,11 @@ import org.bukkit.boss.BossBar;
 import org.bukkit.boss.KeyedBossBar;
 import org.bukkit.entity.Player;
 import org.insurgencedev.insurgenceboosters.api.IBoosterAPI;
+import org.insurgencedev.insurgenceboosters.data.BoosterData;
+import org.insurgencedev.insurgenceboosters.data.GlobalBooster;
 import org.insurgencedev.insurgenceboosters.libs.fo.model.Replacer;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.CompBarStyle;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
-import org.insurgencedev.insurgenceboosters.models.booster.GlobalBoosterManager;
 
 import java.util.*;
 
@@ -29,20 +30,43 @@ public class BossBarUtil {
             return;
         }
 
-        List<GlobalBoosterManager.BoosterData.GlobalBooster> globalBoosters = IBoosterAPI.getGlobalBoosterManager().getBoosters();
-        if (globalBoosters.isEmpty()) {
-            return;
+        String message = "";
+        String type = "";
+        int timeLeft = 0;
+
+
+        switch (MyConfig.scope.toLowerCase()) {
+            case "global" -> {
+                List<GlobalBooster> globalBoosters = IBoosterAPI.INSTANCE.getGlobalBoosterManager().getGlobalBoosters();
+                if (globalBoosters.isEmpty()) {
+                    return;
+                }
+
+                GlobalBooster booster = globalBoosters.get(0);
+                message = Replacer.replaceArray(MyConfig.barMessage, "{multiplier}", booster.getMultiplier(),
+                        "{type}", booster.getType()
+                );
+                timeLeft = (int) booster.getTimeLeft();
+                type = booster.getType();
+            }
+            case "personal" -> {
+                List<BoosterData> personalBoosters = IBoosterAPI.INSTANCE.getCache(player).getBoosterDataManager().findAllActiveBoosters();
+                if (personalBoosters.isEmpty()) {
+                    return;
+                }
+
+                BoosterData booster = personalBoosters.get(0);
+                message = Replacer.replaceArray(MyConfig.barMessage, "{multiplier}", booster.getMultiplier(),
+                        "{type}", booster.getType()
+                );
+                timeLeft = (int) booster.getTimeLeft();
+                type = booster.getType();
+            }
         }
 
-        GlobalBoosterManager.BoosterData.GlobalBooster booster = IBoosterAPI.getGlobalBoosterManager().getBoosters().get(0);
-        String message = Replacer.replaceArray(MyConfig.barMessage,
-                "{multiplier}", booster.getMultiplier(),
-                "{type}", booster.getType()
-        );
-
-        Remain.sendBossbarTimed(player, message, (int) booster.getTimeLeft(), MyConfig.barColor, CompBarStyle.SOLID);
+        Remain.sendBossbarTimed(player, message, timeLeft, MyConfig.barColor, CompBarStyle.SOLID);
         bossBarPlayers.add(player);
-        barTypeTracker.put(player, booster.getType());
+        barTypeTracker.put(player, type);
     }
 
     public void removeBossBar(Player player) {

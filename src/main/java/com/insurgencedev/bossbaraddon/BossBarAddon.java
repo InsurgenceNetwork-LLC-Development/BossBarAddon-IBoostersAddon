@@ -2,10 +2,12 @@ package com.insurgencedev.bossbaraddon;
 
 import com.insurgencedev.bossbaraddon.listeners.BoosterEventListener;
 import com.insurgencedev.bossbaraddon.settings.MyConfig;
+import com.insurgencedev.bossbaraddon.utils.BossBarUtil;
 import org.insurgencedev.insurgenceboosters.api.addon.IBoostersAddon;
 import org.insurgencedev.insurgenceboosters.api.addon.InsurgenceBoostersAddon;
+import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
 
-@IBoostersAddon(name = "BossBarAddon", version = "1.0.2", author = "InsurgenceDev", description = "Display bossbar when a global booster is active")
+@IBoostersAddon(name = "BossBarAddon", version = "1.0.3", author = "InsurgenceDev", description = "Display bossbar when boosters are active")
 public class BossBarAddon extends InsurgenceBoostersAddon {
 
     private static MyConfig config;
@@ -16,8 +18,16 @@ public class BossBarAddon extends InsurgenceBoostersAddon {
     }
 
     @Override
-    public void onAddonReloadablesStart() {
+    public void onAddonReloadAblesStart() {
         config.reload();
         registerEvent(new BoosterEventListener());
+    }
+
+    @Override
+    public void onAddonReload() {
+        Remain.getOnlinePlayers().forEach(player -> {
+            BossBarUtil.removeBossBar(player);
+            BossBarUtil.remove(player);
+        });
     }
 }

@@ -1,6 +1,8 @@
 package com.insurgencedev.bossbaraddon.listeners;
 
+import com.insurgencedev.bossbaraddon.settings.MyConfig;
 import com.insurgencedev.bossbaraddon.utils.BossBarUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -9,27 +11,27 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.PluginDisableEvent;
-import org.insurgencedev.insurgenceboosters.InsurgenceBoosters;
+import org.insurgencedev.insurgenceboosters.data.BoosterData;
 import org.insurgencedev.insurgenceboosters.events.IBoosterEndEvent;
 import org.insurgencedev.insurgenceboosters.events.IBoosterStartEvent;
 import org.insurgencedev.insurgenceboosters.libs.fo.Common;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
-import org.insurgencedev.insurgenceboosters.settings.IBoostersPlayerCache;
 
 public final class BoosterEventListener implements Listener {
 
     @EventHandler
     private void onStart(IBoosterStartEvent event) {
-        if (event.getBoosterData().getScope().equalsIgnoreCase("global")) {
+        BoosterData data = event.getBoosterData();
+        if (data.getScope().equalsIgnoreCase(MyConfig.scope)) {
             Common.runLater(1, () -> BossBarUtil.sendBossBar(event.getPlayer()));
         }
     }
 
     @EventHandler
     private void onEnd(IBoosterEndEvent event) {
-        IBoostersPlayerCache.Data.Booster data = event.getBoosterData();
+        BoosterData data = event.getBoosterData();
 
-        if (data.getScope().equalsIgnoreCase("global")) {
+        if (data.getScope().equalsIgnoreCase(MyConfig.scope)) {
             Player player = event.getPlayer();
             Common.runLater(1, () -> {
                 if (BossBarUtil.isCurrentType(player, data.getType())) {
@@ -61,7 +63,7 @@ public final class BoosterEventListener implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
     private void onDisable(PluginDisableEvent event) {
-        if (event.getPlugin().equals(InsurgenceBoosters.getInstance())) {
+        if (event.getPlugin().equals(Bukkit.getPluginManager().getPlugin("InsurgenceBoosters"))) {
             Remain.getOnlinePlayers().forEach(BossBarUtil::remove);
         }
     }

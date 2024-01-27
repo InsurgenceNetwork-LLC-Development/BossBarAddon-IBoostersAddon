@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="Fixed minor issue">
+    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="Added config option to change the scope of the boss bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/BossBarAddon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/listeners/BoosterEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/settings/MyConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +46,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/hutch/Desktop/IBoosterAddons/JobsRebornAddon&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -166,7 +167,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704370216453</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Boss bar for boosters that are stopped using the command are now removed.">
+      <option name="closed" value="true" />
+      <created>1704634191799</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704634191799</updated>
+    </task>
+    <task id="LOCAL-00011" summary="version update">
+      <option name="closed" value="true" />
+      <created>1704634225572</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704634225572</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed config breaking after reload + minor changes">
+      <option name="closed" value="true" />
+      <created>1704634267881</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704634267881</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,6 +212,9 @@
     <MESSAGE value="fixed bug, added config option" />
     <MESSAGE value="version update and minor changes" />
     <MESSAGE value="Fixed minor issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed minor issue" />
+    <MESSAGE value="Boss bar for boosters that are stopped using the command are now removed." />
+    <MESSAGE value="version update" />
+    <MESSAGE value="Fixed config breaking after reload + minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed config breaking after reload + minor changes" />
   </component>
 </project>

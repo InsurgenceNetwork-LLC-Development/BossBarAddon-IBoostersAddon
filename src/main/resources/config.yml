@@ -1,3 +1,4 @@
+Scope: Personal #restart after changing
 Respect_External_Bars: false
 Boss_Bar:
   Message: "&fx{multiplier} Global {type} Booster"
