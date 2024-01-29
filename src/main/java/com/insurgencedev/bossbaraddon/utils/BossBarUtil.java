@@ -34,7 +34,6 @@ public class BossBarUtil {
         String type = "";
         int timeLeft = 0;
 
-
         switch (MyConfig.scope.toLowerCase()) {
             case "global" -> {
                 List<GlobalBooster> globalBoosters = IBoosterAPI.INSTANCE.getGlobalBoosterManager().getGlobalBoosters();
