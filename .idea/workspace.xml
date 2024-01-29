@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="version correction" />
+    <list default="true" id="fdd00b01-6266-42de-bee5-d593c47dad36" name="Changes" comment="api jar update and added option to determine the scope for boss bars">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/insurgencedev/bossbaraddon/utils/BossBarUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,15 +194,7 @@
       <option name="project" value="LOCAL" />
       <updated>1706389031688</updated>
     </task>
-    <task id="LOCAL-00014" summary="version correction">
-      <option name="closed" value="true" />
-      <created>1706499465944</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706499465944</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,7 +219,6 @@
     <MESSAGE value="version update" />
     <MESSAGE value="Fixed config breaking after reload + minor changes" />
     <MESSAGE value="api jar update and added option to determine the scope for boss bars" />
-    <MESSAGE value="version correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="version correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="api jar update and added option to determine the scope for boss bars" />
   </component>
 </project>
