@@ -9,9 +9,11 @@ import org.bukkit.entity.Player;
 import org.insurgencedev.insurgenceboosters.api.IBoosterAPI;
 import org.insurgencedev.insurgenceboosters.data.BoosterData;
 import org.insurgencedev.insurgenceboosters.data.GlobalBooster;
-import org.insurgencedev.insurgenceboosters.libs.fo.model.Replacer;
+import org.insurgencedev.insurgenceboosters.libs.fo.remain.CompBarColor;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.CompBarStyle;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
+import org.insurgencedev.insurgenceboosters.libs.luaj.vm2.LuaValue;
+import org.insurgencedev.insurgenceboosters.libs.luaj.vm2.lib.jse.CoerceJavaToLua;
 
 import java.util.*;
 
@@ -29,41 +31,41 @@ public class BossBarUtil {
         if (hasBar(player)) {
             return;
         }
-
-        String message = "";
-        String type = "";
-        int timeLeft = 0;
-
         switch (MyConfig.scope.toLowerCase()) {
             case "global" -> {
                 List<GlobalBooster> globalBoosters = IBoosterAPI.INSTANCE.getGlobalBoosterManager().getGlobalBoosters();
                 if (globalBoosters.isEmpty()) {
                     return;
                 }
-
                 GlobalBooster booster = globalBoosters.get(0);
-                message = Replacer.replaceArray(MyConfig.barMessage, "{multiplier}", booster.getMultiplier(),
-                        "{type}", booster.getType()
-                );
-                timeLeft = (int) booster.getTimeLeft();
-                type = booster.getType();
+                int timeLeft = (int) booster.getTimeLeft();
+                handleBooster(player, timeLeft, CoerceJavaToLua.coerce(booster), booster.getMultiplier(), booster.getType());
             }
             case "personal" -> {
                 List<BoosterData> personalBoosters = IBoosterAPI.INSTANCE.getCache(player).getBoosterDataManager().findAllActiveBoosters();
                 if (personalBoosters.isEmpty()) {
                     return;
                 }
-
                 BoosterData booster = personalBoosters.get(0);
-                message = Replacer.replaceArray(MyConfig.barMessage, "{multiplier}", booster.getMultiplier(),
-                        "{type}", booster.getType()
-                );
-                timeLeft = (int) booster.getTimeLeft();
-                type = booster.getType();
+                int timeLeft = (int) booster.getTimeLeft();
+                handleBooster(player, timeLeft, CoerceJavaToLua.coerce(booster), booster.getMultiplier(), booster.getType());
             }
         }
+    }
 
-        Remain.sendBossbarTimed(player, message, timeLeft, MyConfig.barColor, CompBarStyle.SOLID);
+    private void handleBooster(Player player, int timeLeft, LuaValue coercedBooster, double multiplier, String type) {
+        String message = LangUtils.langOf("Boss_Bar.Message", globals -> {
+            globals.set("booster", coercedBooster);
+            globals.set("multiplier", (int) multiplier);
+            globals.set("type", type);
+        });
+        CompBarColor color = CompBarColor.fromKey(LangUtils.langOf("Boss_Bar.Color", globals -> {
+            globals.set("booster", coercedBooster);
+            globals.set("multiplier", (int) multiplier);
+            globals.set("type", type);
+        }));
+        String finalMessage = message.replace("{multiplier}", multiplier + "").replace("{type}", type);
+        Remain.sendBossbarTimed(player, finalMessage, timeLeft, color, CompBarStyle.SOLID);
         bossBarPlayers.add(player);
         barTypeTracker.put(player, type);
     }
