@@ -19,15 +19,12 @@ public class BossBarAddon extends InsurgenceBoostersAddon {
 
     @Override
     public void onAddonReloadAblesStart() {
-        config.reload();
-        registerEvent(new BoosterEventListener());
-    }
-
-    @Override
-    public void onAddonReload() {
         Remain.getOnlinePlayers().forEach(player -> {
             BossBarUtil.removeBossBar(player);
             BossBarUtil.remove(player);
         });
+
+        config.reload();
+        registerEvent(new BoosterEventListener());
     }
 }
