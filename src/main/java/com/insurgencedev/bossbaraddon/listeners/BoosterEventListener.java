@@ -63,7 +63,7 @@ public final class BoosterEventListener implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
     private void onDisable(PluginDisableEvent event) {
-        if (event.getPlugin().equals(Bukkit.getPluginManager().getPlugin("InsurgenceBoosters"))) {
+        if (event.getPlugin().equals(Bukkit.getPluginManager().getPlugin("IBoosters"))) {
             Remain.getOnlinePlayers().forEach(BossBarUtil::remove);
         }
     }

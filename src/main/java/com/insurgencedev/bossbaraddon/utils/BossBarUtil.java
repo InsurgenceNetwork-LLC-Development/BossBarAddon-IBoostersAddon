@@ -31,6 +31,7 @@ public class BossBarUtil {
         if (hasBar(player)) {
             return;
         }
+
         switch (MyConfig.scope.toLowerCase()) {
             case "global" -> {
                 List<GlobalBooster> globalBoosters = IBoosterAPI.INSTANCE.getGlobalBoosterManager().getGlobalBoosters();
@@ -64,6 +65,7 @@ public class BossBarUtil {
             globals.set("multiplier", (int) multiplier);
             globals.set("type", type);
         }));
+
         String finalMessage = message.replace("{multiplier}", multiplier + "").replace("{type}", type);
         Remain.sendBossbarTimed(player, finalMessage, timeLeft, color, CompBarStyle.SOLID);
         bossBarPlayers.add(player);
