@@ -7,7 +7,7 @@ import org.insurgencedev.insurgenceboosters.api.addon.IBoostersAddon;
 import org.insurgencedev.insurgenceboosters.api.addon.InsurgenceBoostersAddon;
 import org.insurgencedev.insurgenceboosters.libs.fo.remain.Remain;
 
-@IBoostersAddon(name = "BossBarAddon", version = "1.0.7", author = "InsurgenceDev", description = "Display bossbar when boosters are active")
+@IBoostersAddon(name = "BossBarAddon", version = "1.0.6", author = "InsurgenceDev", description = "Display bossbar when boosters are active")
 public class BossBarAddon extends InsurgenceBoostersAddon {
 
     private static MyConfig config;
